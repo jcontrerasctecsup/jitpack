@@ -1,3 +1,7 @@
+---
+title: JitPack
+---
+
 JitPack.io
 =====
 JitPack is a novel package repository for JVM and Android projects. It builds Git projects on demand and provides you with ready-to-use artifacts (jar, aar).
@@ -10,17 +14,15 @@ For issues and enhancements, please use the [JitPack GitHub repository](https://
 
 If you'd like some help with setting up repositories please use the Support button on the web site. 
 
-Building with JitPack
-=====
+# Building with JitPack
 
 If you are using Gradle to get a GitHub project into your build, you will need to:
 
-**Step 1.** Add the JitPack maven repository 
+**Step 1.** Add the JitPack maven repository to the list of repositories:
 
 ```gradle
-    maven { url "https://jitpack.io"  }
+    url "https://jitpack.io"
 ```
-*Note*: when using multiple repositories in `build.gradle` it is recommended to add JitPack *at the end*. Gradle will go through all repositories in order until it finds a dependency.
 
 **Step 2.**  Add the dependency information:
 
@@ -39,24 +41,13 @@ Gradle example:
             mavenCentral()
             maven { url "https://jitpack.io" }
         }
-    }
-    dependencies {
+   }
+   dependencies {
         implementation 'com.github.User:Repo:Version'
-    }
+   }
 ```
 
-**Note:**  For [security](https://blog.autsoft.hu/a-confusing-dependency/) and performance reasons it is recommended to exclude the dependency search from other repositories using [filtering](https://docs.gradle.org/current/userguide/declaring_repositories.html#sec:repository-content-filtering).
-
-```gradle
-      maven { 
-        url "https://jitpack.io" 
-        content { includeGroup "com.github.username" }
-      }
-      maven {
-        url "https://other repository"
-        content { excludeGroupByRegex "com\\.github.username.*" }
-      }
-```
+*Note*: when using multiple repositories in build.gradle it is recommended to add JitPack *at the end*. Gradle will go through all repositories in order until it finds a dependency.
 
 **Snapshots**
 
@@ -110,7 +101,7 @@ Publishing your library on JitPack is very simple:
 
 - Create a [GitHub Release](https://github.com/blog/1547-release-your-software)  
 
-As long as there's a build file in your repository and it can install your library in the local Maven repository, it is sufficient for JitPack. See the [Guide to building](/building) on how to publish JVM libraries and [Guide to Android](ANDROID.md) on how to publish Android libraries.
+As long as there's a build file in your repository and it can install your library in the local Maven repository, it is sufficient for JitPack. See the [Guide to building](/building) on how to publish JVM libraries and [Guide to Android](/android) on how to publish Android libraries.
 
 *Tip:* You can try out your code before a release by using the commit hash as the version.
 

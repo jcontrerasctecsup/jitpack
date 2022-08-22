@@ -1,3 +1,10 @@
+---
+title: About
+weight: 1
+pre: "<b>1. </b>"
+chapter: true
+---
+
 JitPack.io
 =====
 JitPack is a novel package repository for JVM and Android projects. It builds Git projects on demand and provides you with ready-to-use artifacts (jar, aar).
